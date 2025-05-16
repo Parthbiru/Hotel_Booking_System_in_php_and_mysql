@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color:  #002a80;
+        }
+
+        .header {
+            background-color: #003580;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color:#003580 ;
+        }
+
+        .login-form {
+            background-color: #ffffff;
+            padding: 35px;
+            border-radius: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #003580;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #003580;
+            text-align: left;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-form .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .login-form .forgot-password a {
+            color: #003580;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .login-form .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .login-form .submit-btn {
+            background-color: #003580;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-form .submit-btn:hover {
+            background-color: #002a80;
+        }
+
+        .login-form .signup-link p {
+            font-size: 14px;
+        }
+
+        .login-form .signup-link a {
+            color: #003580;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-form .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hotel Booking Login</h1>
+    </div>
+
+    <div class="container">
+        <div class="login-form">
+            <h2>Login to Your Account</h2>
+            <form action="/login" method="POST">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <div class="forgot-password">
+                    <a href="forget password.php">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="submit-btn">Login</button>
+
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

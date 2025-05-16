@@ -1,0 +1,445 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhatiya Hotel</title>
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <header> 
+        <h1>Bhatiya Hotel</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="rooms.php">Rooms</a></li>
+                <li><a href="#">Facilities</a></li>
+                <li><a href="#">ContactUs</a></li>
+                <li><a href="#">AboutUs</a></li>
+            </ul>
+        </nav>
+        <div class="left">
+            <a href="form/Login.html">Login</a>
+        </div>
+    </header>
+
+    <section class="search">
+        <form action="#" method="get">
+            <label for="city">Enter City Name:</label>
+            <input list="cities" id="city" name="city" placeholder="Type city name..." required>
+            <datalist id="cities">
+                <option value="Valsad">
+                <option value="Vapi">
+                <option value="Surat">
+                <option value="New Delhi">
+                <option value="Noida">
+                <option value="New Nodia">
+            </datalist>
+
+            <label for="check-in">Check-in Date:</label>
+            <input type="date" id="check-in" name="check-in" required>
+
+            <label for="check-out">Check-out Date:</label>
+            <input type="date" id="check-out" name="check-out" required>
+
+            <label for="rooms">Select Rooms:</label>
+            <select id="rooms" name="rooms" required>
+                <option value="single">Single Room</option>
+                <option value="double">Double Room</option>
+                <option value="suite">Suite</option>
+            </select>
+
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+ <!-- Carousel -->
+ <div class="carousel-container">
+    <div class="carousel">
+        <!-- Add 10 cards for the carousel -->
+        <div class="card">
+            <img src="hotel1.jpg" alt="Hotel 1" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Hotel 1</h3>
+                <p class="card-price">₹ 8,000</p>
+                <a href="rooms.php" class="view-more">View More Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="hotel2.jpg" alt="Hotel 2" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Hotel 2</h3>
+                <p class="card-price">₹ 7,000</p>
+                <a href="rooms.php" class="view-more">View More Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="hotel3.jpg" alt="Hotel 3" class="card-img">
+            <div class="card-body">
+                <h3 class="card-title">Hotel 3</h3>
+                <p class="card-price">₹ 10,000</p>
+                <a href="rooms.php" class="view-more">View More Details</a>
+            </div>
+        </div>
+        <!-- Add more cards for hotels 4 to 10 -->
+    </div>
+</div>
+
+<!-- Carousel Controls -->
+<div class="carousel-controls">
+    <button class="prev-btn">Prev</button>
+    <button class="next-btn">Next</button>
+</div>
+</section>
+
+<script>
+let currentIndex = 0;
+const cards = document.querySelectorAll('.carousel .card');
+const totalCards = cards.length;
+const nextBtn = document.querySelector('.next-btn');
+const prevBtn = document.querySelector('.prev-btn');
+
+function updateCarousel() {
+    const newTransformValue = -currentIndex * (cards[0].offsetWidth + 20); // card width + margin
+    document.querySelector('.carousel').style.transform = `translateX(${newTransformValue}px)`;
+}
+
+nextBtn.addEventListener('click', () => {
+    if (currentIndex < totalCards - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0; // Reset to the first card
+    }
+    updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = totalCards - 1; // Go to the last card
+    }
+    updateCarousel();
+});
+</script>
+
+
+
+
+
+
+
+
+/* Card Section */
+        .carousel-container {
+            width: 80%;
+            overflow: hidden;
+            margin: 50px auto;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 10px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #003580;
+        }
+
+        .card-price {
+            font-size: 1.25rem;
+            color: #003580;
+            margin-bottom: 15px;
+        }
+
+        .view-more {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #003580;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .view-more:hover {
+            background-color: #002a80;
+        }
+
+        /* Carousel Controls */
+        .carousel-controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .prev-btn, .next-btn {
+            padding: 10px 20px;
+            background-color: #003580;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background-color: #002a80;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        login page code 
+
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Login</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Header */
+        .header {
+            background-color: #003580;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        /* Login Form */
+        .login-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #003580;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #003580;
+            text-align: left;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-form .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .login-form .forgot-password a {
+            color: #003580;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .login-form .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .login-form .submit-btn {
+            background-color: #003580;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-form .submit-btn:hover {
+            background-color: #002a80;
+        }
+
+        .login-form .signup-link p {
+            font-size: 14px;
+        }
+
+        .login-form .signup-link a {
+            color: #003580;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-form .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hotel Booking Login</h1>
+    </div>
+
+    <div class="container">
+        <div class="login-form">
+            <h2>Login to Your Account</h2>
+            <form action="/login" method="POST">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="submit-btn">Login</button>
+
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<div class="menu">
+    <!-- Account SVG Icon that triggers the dropdown -->
+    <svg id="account-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" onclick="toggleDropdown()">
+        <path d="M13 8a5 5 0 1 0-10 0 5 5 0 0 0 10 0zM8 1a7 7 0 1 1 0 14 7 7 0 0 1 0-14z"/>
+    </svg>
+
+    <!-- Dropdown Menu -->
+    <div id="dropdown-menu" class="dropdown">
+        <a href="form/Login.html"><button>Sign in</button></a>
+        <a href="form/signup.html"><button>Create an account</button></a>
+        <a href="form/need.php"><button>Need help?</button></a>
+    </div>
+</div>
+
+<script>
+    // Dropdown functionality
+    function toggleDropdown() {
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        dropdownMenu.classList.toggle('active');
+    }
+
+    // Automatically close the dropdown if the user clicks anywhere outside of it
+    document.addEventListener('click', function(event) {
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const accountIcon = document.getElementById('account-icon');
+
+        if (!accountIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('active');
+        }
+    });
+    </style>
